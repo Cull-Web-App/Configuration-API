@@ -1,0 +1,27 @@
+{
+  "name": "configuration-api",
+  "version": "1.0.0",
+  "description": "API to serve configuration information",
+  "main": "index.js",
+  "scripts": {
+    "debug-lambda": "export SLS_DEBUG=* && node --inspect=5858 /usr/local/bin/serverless offline -s dev",
+    "lint": "npx eslint ./**/*.ts",
+    "deploy": "npm run lint && sls deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-lambda": "^0.1.2",
+    "aws-sdk": "^2.532.0",
+    "serverless-plugin-typescript": "^1.1.9"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.31",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2",
+    "typescript": "^3.7.3",
+    "serverless-offline": "^4.9.4"
+  }
+}
