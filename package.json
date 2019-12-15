@@ -13,14 +13,13 @@
   "dependencies": {
     "aws-lambda": "^0.1.2",
     "aws-sdk": "^2.532.0",
-    "serverless-plugin-typescript": "^1.1.7"
+    "serverless-plugin-typescript": "^1.1.9"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.31",
     "@types/node": "^12.7.5",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "copyfiles": "^2.1.1",
     "eslint": "^6.7.2",
     "typescript": "^3.7.3",
     "serverless-offline": "^4.9.4"

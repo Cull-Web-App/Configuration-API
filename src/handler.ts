@@ -1,9 +1,9 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context, Handler } from 'aws-lambda';
 import { HTTP_STATUS_CODES } from './constants';
-
-const envConfigs = require('./config/env.config.json');
+import * as envConfigs from './config/env.config.json';
 
 export const getConfigForEnv: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
+    console.log(event);
     if (!event.queryStringParameters)
     {
         return {
@@ -18,7 +18,7 @@ export const getConfigForEnv: Handler = async (event: APIGatewayProxyEvent, cont
     return {
         statusCode: HTTP_STATUS_CODES.SUCCESS,
         body: JSON.stringify({
-            config: envConfigs[env]
+            config: envConfigs[env.toUpperCase()]
         })
     };
 };
