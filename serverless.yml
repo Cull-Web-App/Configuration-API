@@ -23,6 +23,8 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-2
+  environment:
+    ENV: ${self:custom.myStage}
 
 package:
   exclude:
@@ -46,3 +48,4 @@ functions:
 custom:
   serverless-offline:
     port: 4000
+  myStage: ${opt:stage, self:provider.stage}
