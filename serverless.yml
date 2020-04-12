@@ -37,11 +37,26 @@ environment:
   SLS_DEBUG: true
 
 functions:
-  getConfigForEnv:
-    handler: src/handler.getConfigForEnv
+  getEnvConfigForEnv:
+    handler: src/handler.getEnvConfigForEnv
     events:
       - http:
-          path: /getConfigForEnv
+          path: /getEnvConfigForEnv
+          method: get
+          cors: true
+  getApiConfigForEnv:
+    handler: src/handler.getApiConfigForEnv
+    events:
+      - http:
+          path: /getApiConfigForEnv
+          method: get
+          cors: true
+
+  getAllConfigsForEnv:
+    handler: src/handler.getAllConfigsForEnv
+    events:
+      - http:
+          path: /getAllConfigsForEnv
           method: get
           cors: true
 
