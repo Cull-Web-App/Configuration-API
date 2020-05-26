@@ -10,7 +10,7 @@ globals:
   SharedArrayBuffer: readonly
 parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: 2019
+  ecmaVersion: 2020
   sourceType: module
 plugins:
   - '@typescript-eslint'
@@ -27,3 +27,7 @@ rules:
   semi:
     - error
     - always
+  no-empty-function:
+    - error
+    - allow:
+      - arrowFunctions
