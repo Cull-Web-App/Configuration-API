@@ -11,7 +11,7 @@
     "debug-lambda-unix": "export SLS_DEBUG=* && node --inspect=5858 /usr/local/bin/serverless offline -s dev",
     "debug-lambda-win": "SET SLS_DEBUG=* && node --inspect=5858 %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless offline -s dev",
     "lint": "npx eslint ./**/*.ts",
-    "deploy": "sls deploy -s prod"
+    "deploy": "npm run lint && sls deploy -s prod"
   },
   "author": "",
   "license": "ISC",
