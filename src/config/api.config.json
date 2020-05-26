@@ -1,0 +1,18 @@
+{
+    "LOCAL": {
+        "FINANCIAL_DATA_API": "http://localhost:8000",
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+    },
+    "DEV": {
+        "FINANCIAL_DATA_API": "http://localhost:8000",
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+    },
+    "TEST": {
+        "FINANCIAL_DATA_API": "http://localhost:8000",
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+    },
+    "PROD": {
+        "FINANCIAL_DATA_API": "http://localhost:8000",
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+    }
+}

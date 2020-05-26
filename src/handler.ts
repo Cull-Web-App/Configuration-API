@@ -1,8 +1,10 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context, Handler } from 'aws-lambda';
+import * as apiConfigs from './config/api.config.json';
 import * as envConfigs from './config/env.config.json';
 import { HTTP_STATUS_CODES } from './constants';
+import { getConfigForEnv } from './utils';
 
-export const getConfigForEnv: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
+export const getEnvConfigForEnv: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
     console.log(event);
     const { env } = Object(event.queryStringParameters);
 
@@ -10,7 +12,37 @@ export const getConfigForEnv: Handler = async (event: APIGatewayProxyEvent, cont
     return {
         statusCode: HTTP_STATUS_CODES.SUCCESS,
         body: JSON.stringify({
-            config: envConfigs[(env || (process.env.ENV as string)).toUpperCase()]
+            config: getConfigForEnv(envConfigs, env)
+        })
+    };
+};
+
+export const getApiConfigForEnv: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
+    console.log(event);
+    const { env } = Object(event.queryStringParameters);
+
+    return {
+        statusCode: HTTP_STATUS_CODES.SUCCESS,
+        body: JSON.stringify({
+            config: getConfigForEnv(apiConfigs, env)
+        })
+    };
+};
+
+export const getAllConfigsForEnv: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
+    console.log(event);
+
+    // Call the other handler methods (just as functions, not as lambda)
+    const [envConfig, apiConfig]: APIGatewayProxyResult[] = await Promise.all([
+        await getEnvConfigForEnv(event, context, () => {}),
+        await getApiConfigForEnv(event, context, () => {})
+    ]);
+
+    return {
+        statusCode: HTTP_STATUS_CODES.SUCCESS,
+        body: JSON.stringify({
+            envConfig,
+            apiConfig
         })
     };
 };
