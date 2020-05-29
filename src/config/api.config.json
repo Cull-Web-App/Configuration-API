@@ -1,18 +1,18 @@
 {
     "LOCAL": {
         "FINANCIAL_DATA_API": "http://localhost:8000",
-        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/stable/"
     },
     "DEV": {
         "FINANCIAL_DATA_API": "http://localhost:8000",
-        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/stable/"
     },
     "TEST": {
         "FINANCIAL_DATA_API": "http://localhost:8000",
-        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/stable/"
     },
     "PROD": {
         "FINANCIAL_DATA_API": "http://localhost:8000",
-        "DATA_SOURCE_URL": "https://cloud.iexapis.com/v1/stock/"
+        "DATA_SOURCE_URL": "https://cloud.iexapis.com/stable/"
     }
 }
