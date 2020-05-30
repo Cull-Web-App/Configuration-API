@@ -33,7 +33,7 @@ export const getAllConfigsForEnv: Handler = async (event: APIGatewayProxyEvent, 
     console.log(event);
 
     // Call the other handler methods (just as functions, not as lambda)
-    const [envConfig, apiConfig]: APIGatewayProxyResult[] = await Promise.all([
+    const [envConfigResult, apiConfigResult]: APIGatewayProxyResult[] = await Promise.all([
         await getEnvConfigForEnv(event, context, () => {}),
         await getApiConfigForEnv(event, context, () => {})
     ]);
@@ -41,8 +41,8 @@ export const getAllConfigsForEnv: Handler = async (event: APIGatewayProxyEvent, 
     return {
         statusCode: HTTP_STATUS_CODES.SUCCESS,
         body: JSON.stringify({
-            envConfig,
-            apiConfig
+            envConfig: JSON.parse(envConfigResult.body).config,
+            apiConfig: JSON.parse(apiConfigResult.body).config
         })
     };
 };
