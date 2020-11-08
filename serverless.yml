@@ -64,7 +64,3 @@ custom:
   serverless-offline:
     port: 4000
   myStage: ${opt:stage, self:provider.stage}
-
-
-
-  adjflak;sdf
